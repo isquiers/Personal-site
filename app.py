@@ -7,6 +7,10 @@ def index():
     # TODO: fetch slot data from the backend and pass it to the template
     return render_template('index.html')
 
+@app.route('/coaching.html')
+def coaching():
+    return render_template('coaching.html')
+
 @app.route('/reserve/<int:slot_id>')
 def reserve(slot_id):
     # TODO: implement reservation logic

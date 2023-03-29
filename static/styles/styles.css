@@ -7,13 +7,22 @@
   font-family: 'Poppins', sans-serif;
 }
 body{
-  display: flex;
+  /* display: flex; */
   align-items: center;
   padding: 0 10px;
   justify-content: center;
   min-height: 100vh;
   background: #9B59B6;
 }
+
+.header{
+  padding: 60px;
+  text-align: center;
+  background: #1abc9c;
+  color: white;
+  font-size: 30px;
+}
+
 .wrapper{
   width: 450px;
   background: #fff;
@@ -53,6 +62,7 @@ header .current-date{
 }
 .calendar{
   padding: 20px;
+  
 }
 .calendar ul{
   display: flex;
@@ -102,6 +112,17 @@ header .current-date{
   background: #f2f2f2;
 }
 
+/* Popup Styles__________________________ */
+.cat_selector{
+    background-color: white;
+    margin-top: 20px;
+    margin-left: 10%;
+    margin-right: 10%;
+    padding: 10%;
+    border-radius: 5px;
+    text-align: center;
+
+}
 
 /* Popup Styles__________________________ */
 
@@ -111,7 +132,6 @@ header .current-date{
     display: none;
     position: fixed;
     bottom: 0;
-    right: 15px;
     border: 3px solid #f1f1f1;
     z-index: 9;
   }
@@ -153,6 +173,14 @@ header .current-date{
   /* Add a red background color to the cancel button */
   .form-container .cancel {
     background-color: red;
+  }
+
+  .open-button{
+    background-color: #04AA6D;
+    border-left: none;
+    border-right: none;
+    text-align: center;
+
   }
   
   /* Add some hover effects to buttons */

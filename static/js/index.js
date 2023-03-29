@@ -37,6 +37,14 @@ const renderCalendar = () => {
 }
 renderCalendar();
 
+function openForm() {
+  document.getElementById("myForm").style.display = "block";
+}
+
+function closeForm() {
+  document.getElementById("myForm").style.display = "none";
+}
+
 prevNextIcon.forEach(icon => { // getting prev and next icons
     icon.addEventListener("click", () => { // adding click event on both icons
         // if clicked icon is previous icon then decrement current month by 1 else increment it by 1
@@ -55,11 +63,18 @@ prevNextIcon.forEach(icon => { // getting prev and next icons
     });
 });
 
-function openForm() {
-  document.getElementById("myForm").style.display = "block";
-}
 
-function closeForm() {
-  document.getElementById("myForm").style.display = "none";
-}
+const dayItems = document.querySelectorAll('.days li');
 
+dayItems.forEach(item => {
+    item.addEventListener('click', function() {
+      const dayNumber = this.textContent.trim(); // Get the text content of the clicked item and trim any whitespace
+      runFunctionBasedOnDay(dayNumber); // Call a function based on the text content of the clicked item
+    });
+});
+
+// Test day reaction
+function runFunctionBasedOnDay(dayNumber) {
+  // Run a function based on the day number
+  console.log(`Clicked on day ${dayNumber}`);
+}

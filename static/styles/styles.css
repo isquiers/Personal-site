@@ -9,18 +9,36 @@
 body{
   /* display: flex; */
   align-items: center;
-  padding: 0 10px;
+  padding: 10px;
   justify-content: center;
   min-height: 100vh;
   background: #9B59B6;
+  display: flex;
+  justify-content: center;
 }
 
 .header{
-  padding: 60px;
   text-align: center;
   background: #1abc9c;
   color: white;
   font-size: 30px;
+  height: 100px;
+}
+
+h1 {
+  color: #333;
+}
+
+.footer {
+  text-align: center;
+}
+
+.cat_selector img{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 200px;
+  margin-bottom: 30px;
 }
 
 .wrapper{
@@ -28,7 +46,10 @@ body{
   background: #fff;
   border-radius: 10px;
   box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+  margin: 100px auto 10px auto;
+
 }
+
 .wrapper header{
   display: flex;
   align-items: center;
@@ -59,6 +80,7 @@ header .icons span:hover{
 header .current-date{
   font-size: 1.45rem;
   font-weight: 500;
+  color: #333;
 }
 .calendar{
   padding: 20px;
@@ -112,20 +134,47 @@ header .current-date{
   background: #f2f2f2;
 }
 
-/* Popup Styles__________________________ */
+/* Category Styles__________________________ */
 .cat_selector{
     background-color: white;
     margin-top: 20px;
     margin-left: 10%;
     margin-right: 10%;
-    padding: 10%;
+    padding: 10px 10% 10% 10%;
     border-radius: 5px;
     text-align: center;
-
+    justify-content: center;
+    align-items: center;
+    width: 500px;
+  height: 600px;
 }
 
-/* Popup Styles__________________________ */
+.cat_selector a {
+  background-color: #eee;
+  color: black;
+  display: block;
+  padding: 12px;
+  text-decoration: none;
+}
 
+.cat_selector a:hover {
+  background-color: #ccc;
+}
+
+.cat_selector a.active {
+  background-color: #04AA6D;
+  color: white;
+}
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: rgb(41, 41, 41);
+  color: white;
+  text-align: center;
+}
 
 /* The popup form - hidden by default */
 .form-popup {
@@ -159,7 +208,7 @@ header .current-date{
   }
   
   /* Set a style for the submit/login button */
-  .form-container .btn {
+.form-container .btn {
     background-color: #04AA6D;
     color: white;
     padding: 16px 20px;
@@ -171,7 +220,7 @@ header .current-date{
   }
   
   /* Add a red background color to the cancel button */
-  .form-container .cancel {
+.form-container .cancel {
     background-color: red;
   }
 
@@ -187,3 +236,7 @@ header .current-date{
   .form-container .btn:hover, .open-button:hover {
     opacity: 1;
   }
+  
+.form-container .timebox{
+    background-color: #04AA6D;
+}

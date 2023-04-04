@@ -94,26 +94,27 @@
       </div>
     </section>
 
-    <button class="open-button" onclick="openForm()">Open Form</button>
-
     <div class="form-popup" id="myForm">
-      <form action="/action_page.php" class="form-container">
-        <h1 id="dt_selection">Select</h1>
-        <li><button class="timebox"> <strong>Morning</strong> 8am - 11am</button></li>
-        <li><button class="timebox"> <strong>Noon</strong> 11am - 1pm</button></li>
-        <li><button class="timebox"> <strong>Afternoon</strong> 1pm - 3pm</button></li>
-        <li><button class="timebox"> <strong>Evening</strong> 4pm - 7pm</button></li>
-
+      <form action="/send_email" method="post" class="form-container">
+        <h1 id="dt_selection">Date</h1>
+        <li><button class="timebox" name="Morning" value="Morning" onclick="selectTimebox(this)"> <strong>Morning</strong> 8am - 11am</button></li>
+        <li><button class="timebox" name="Noon" value="Noon" onclick="selectTimebox(this)"> <strong>Noon</strong> 11am - 1pm</button></li>
+        <li><button class="timebox" name="Afternoon" value="Afternoon" onclick="selectTimebox(this)"> <strong>Afternoon</strong> 1pm - 3pm</button></li>
+        <li><button class="timebox" name="Evening" value="Evening" onclick="selectTimebox(this)"> <strong>Evening</strong> 4pm - 7pm</button></li>
+    
         <label for="email"><b>Email</b></label>
         <input type="text" placeholder="Enter Email" name="email" required>
-
+    
         <label for="name"><b>Name</b></label>
-        <input type="password" placeholder="Enter Password" name="psw" required>
-
-        <button type="submit" class="btn">Login</button>
-        <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+        <input type="text" placeholder="Enter Name" name="name" required>
+    
+        <div class="button-container">
+          <button type="submit" class="btn">Submit</button>
+          <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+        </div>
       </form>
     </div>
+
     <div class="footer">For inquiries please reach out to Ian Squiers © 2023</div>
 </body>
 

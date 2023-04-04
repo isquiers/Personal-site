@@ -1,4 +1,11 @@
-from flask import Flask, render_template, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for
+from flask_mail import Mail, Message
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
+
+app_passcode = os.getenv("APP_PASSCODE")
 
 app = Flask(__name__, template_folder='.')
 
@@ -11,10 +18,31 @@ def index():
 def coaching():
     return render_template('coaching.html')
 
-@app.route('/reserve/<int:slot_id>')
-def reserve(slot_id):
-    # TODO: implement reservation logic
-    return redirect(url_for('index'))
+app.config['MAIL_SERVER']='smtp.gmail.com'
+app.config['MAIL_PORT'] = 465
+app.config['MAIL_USERNAME'] = 'iansquiers321@gmail.com'
+app.config['MAIL_PASSWORD'] = app_passcode
+app.config['MAIL_USE_TLS'] = False
+app.config['MAIL_USE_SSL'] = True
+mail = Mail(app)
+
+@app.route('/send_email', methods=['POST'])
+def send_email():
+    try:
+        email = request.form['email']
+        name = request.form['name']
+        date = request.form['date']
+        timebox = request.form.get('timebox', default='not selected')
+        print(f"Email: {email}")
+        print(f"Name: {name}")
+        print(f"Date: {date}")
+        print(f"Timebox: {timebox}")
+        msg = Message('Lesson Request', sender='your_email@gmail.com', recipients=['youremail@gmail.com'])
+        msg.body = f"I am requesting a lesson in the {timebox} on the date {date}.\nHere is my name and email: {name}, {email}"
+        mail.send(msg)
+        return 'Email sent!'
+    except Exception as e:
+        return str(e)
 
 if __name__ == '__main__':
     app.run(debug=True)

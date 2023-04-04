@@ -53,7 +53,7 @@ function renderCalendar() {
 renderCalendar();
 
 function openForm() {
-  document.getElementById("myForm").style.display = "block";
+  document.getElementById("myForm").style.display = "flex";
 }
 
 function closeForm() {
@@ -95,3 +95,52 @@ function runFunctionBasedOnDay(dayNumber) {
   document.getElementById("dt_selection").innerText = `Selected ${months[currMonth]} ${dayNumber}`;
   openForm();
 }
+
+function selectTimebox(button) {
+    // Deselect all other timebox buttons
+    var timeboxes = document.getElementsByClassName("timebox");
+    for (var i = 0; i < timeboxes.length; i++) {
+        if (timeboxes[i] !== button) {
+            timeboxes[i].classList.remove("selected");
+        }
+    }
+    // Toggle the selected class on the clicked button
+    button.classList.toggle("selected");
+
+    // Get the selected timebox value
+    var selectedTimebox = button.value;
+
+    // Get the dt_selection h1 text
+    var dtSelection = document.getElementById("dt_selection").textContent;
+}
+
+const form = document.querySelector('#myForm');
+const calendarWrapper = document.querySelector('.calendar-wrapper');
+
+function sendEmail() {
+  const xhr = new XMLHttpRequest();
+  const email = document.querySelector('input[name="email"]').value;
+  const name = document.querySelector('input[name="name"]').value;
+  const date = document.querySelector('#dt_selection').textContent;
+  const timebox = document.querySelector('.timebox.selected')?.value ?? 'not selected';
+
+  xhr.open('POST', '/send_email', true);
+  xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState === 4) {
+      if (xhr.status === 200) {
+        console.log(xhr.responseText);
+        closeForm();
+        calendarWrapper.style.display = 'none';
+      } else {
+        console.error(xhr.statusText);
+      }
+    }
+  };
+  xhr.send(`email=${email}&name=${name}&date=${date}&timebox=${timebox}`);
+}
+
+form.addEventListener('submit', event => {
+  event.preventDefault();
+  sendEmail();
+});

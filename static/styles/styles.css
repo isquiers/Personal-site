@@ -1,12 +1,14 @@
 /* Import Google font - Poppins */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
-*{
+
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: 'Poppins', sans-serif;
 }
-body{
+
+body {
   /* display: flex; */
   align-items: center;
   padding: 10px;
@@ -17,7 +19,7 @@ body{
   justify-content: center;
 }
 
-.header{
+.header {
   text-align: center;
   background: #1abc9c;
   color: white;
@@ -33,7 +35,7 @@ h1 {
   text-align: center;
 }
 
-.cat_selector img{
+.cat_selector img {
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -41,25 +43,29 @@ h1 {
   margin-bottom: 30px;
 }
 
-.wrapper{
+/* Calendar Section */
+
+.wrapper {
   width: 450px;
   background: #fff;
   border-radius: 10px;
-  box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
   margin: 100px auto 10px auto;
 
 }
 
-.wrapper header{
+.wrapper header {
   display: flex;
   align-items: center;
   padding: 25px 30px 10px;
   justify-content: space-between;
 }
-header .icons{
+
+header .icons {
   display: flex;
 }
-header .icons span{
+
+header .icons span {
   height: 38px;
   width: 38px;
   margin: 0 1px;
@@ -71,52 +77,64 @@ header .icons span{
   user-select: none;
   border-radius: 50%;
 }
-.icons span:last-child{
+
+.icons span:last-child {
   margin-right: -10px;
 }
-header .icons span:hover{
+
+header .icons span:hover {
   background: #f2f2f2;
 }
-header .current-date{
+
+header .current-date {
   font-size: 1.45rem;
   font-weight: 500;
   color: #333;
 }
-.calendar{
+
+.calendar {
   padding: 20px;
-  
+
 }
-.calendar ul{
+
+.calendar ul {
   display: flex;
   flex-wrap: wrap;
   list-style: none;
   text-align: center;
 }
-.calendar .days{
+
+.calendar .days {
   margin-bottom: 20px;
 }
-.calendar li{
+
+.calendar li {
   color: #333;
   width: calc(100% / 7);
   font-size: 1.07rem;
 }
-.calendar .weeks li{
+
+.calendar .weeks li {
   font-weight: 500;
   cursor: default;
 }
-.calendar .days li{
+
+.calendar .days li {
   z-index: 1;
   cursor: pointer;
   position: relative;
   margin-top: 30px;
 }
-.days li.inactive{
+
+.days li.inactive {
   color: #aaa;
 }
-.days li.active{
+
+.days li.active {
   color: #fff;
 }
-.days li::before{
+
+.days li::before {
   position: absolute;
   content: "";
   left: 50%;
@@ -127,25 +145,27 @@ header .current-date{
   border-radius: 50%;
   transform: translate(-50%, -50%);
 }
-.days li.active::before{
+
+.days li.active::before {
   background: #9B59B6;
 }
-.days li:not(.active):hover::before{
+
+.days li:not(.active):hover::before {
   background: #f2f2f2;
 }
 
-/* Category Styles__________________________ */
-.cat_selector{
-    background-color: white;
-    margin-top: 20px;
-    margin-left: 10%;
-    margin-right: 10%;
-    padding: 10px 10% 10% 10%;
-    border-radius: 5px;
-    text-align: center;
-    justify-content: center;
-    align-items: center;
-    width: 500px;
+/* Category Section */
+.cat_selector {
+  background-color: white;
+  margin-top: 20px;
+  margin-left: 10%;
+  margin-right: 10%;
+  padding: 10px 10% 10% 10%;
+  border-radius: 5px;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  width: 500px;
   height: 600px;
 }
 
@@ -178,65 +198,240 @@ header .current-date{
 
 /* The popup form - hidden by default */
 .form-popup {
-    display: none;
-    position: fixed;
-    bottom: 0;
-    border: 3px solid #f1f1f1;
-    z-index: 9;
-  }
-  
-  /* Add styles to the form container */
-  .form-container {
-    max-width: 300px;
-    padding: 10px;
-    background-color: white;
-  }
-  
-  /* Full-width input fields */
-  .form-container input[type=text], .form-container input[type=password] {
-    width: 100%;
-    padding: 15px;
-    margin: 5px 0 22px 0;
-    border: none;
-    background: #f1f1f1;
-  }
-  
-  /* When the inputs get focus, do something */
-  .form-container input[type=text]:focus, .form-container input[type=password]:focus {
-    background-color: #ddd;
-    outline: none;
-  }
-  
-  /* Set a style for the submit/login button */
+  display: none;
+  position: fixed;
+  bottom: 0;
+  border: 3px solid #f1f1f1;
+  z-index: 9;
+}
+
+/* Add styles to the form container */
+.form-container {
+  max-width: 300px;
+  padding: 10px;
+  background-color: white;
+}
+
+/* Full-width input fields */
+.form-container input[type=text],
+.form-container input[type=password] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  border: none;
+  background: #f1f1f1;
+}
+
+/* When the inputs get focus, do something */
+.form-container input[type=text]:focus,
+.form-container input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Set a style for the submit/login button */
 .form-container .btn {
-    background-color: #04AA6D;
-    color: white;
-    padding: 16px 20px;
-    border: none;
-    cursor: pointer;
-    width: 100%;
-    margin-bottom:10px;
-    opacity: 0.8;
-  }
-  
-  /* Add a red background color to the cancel button */
+  background-color: #04AA6D;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom: 10px;
+  opacity: 0.8;
+}
+
+/* Add a red background color to the cancel button */
 .form-container .cancel {
-    background-color: red;
-  }
+  background-color: red;
+}
 
-  .open-button{
-    background-color: #04AA6D;
-    border-left: none;
-    border-right: none;
-    text-align: center;
+.open-button {
+  background-color: #04AA6D;
+  border-left: none;
+  border-right: none;
+  text-align: center;
 
-  }
-  
-  /* Add some hover effects to buttons */
-  .form-container .btn:hover, .open-button:hover {
-    opacity: 1;
-  }
-  
-.form-container .timebox{
-    background-color: #04AA6D;
+}
+
+/* Add some hover effects to buttons */
+.form-container .btn:hover,
+.open-button:hover {
+  opacity: 1;
+}
+
+.form-container .timebox {
+  background-color: #04AA6D;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Navigation Bar */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 100px;
+  background-color: #1C1C1C;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 999;
+}
+
+.logo {
+  color: #FFFFFF;
+  font-size: 28px;
+  font-weight: 600;
+  letter-spacing: 2px;
+}
+
+.nav-links {
+  display: flex;
+}
+
+.nav-links li {
+  list-style: none;
+  margin-left: 40px;
+}
+
+.nav-links li a {
+  color: #FFFFFF;
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-decoration: none;
+  transition: all 0.3s ease 0s;
+}
+
+.nav-links li a:hover {
+  color: #F5A623;
+}
+
+.burger {
+  display: none;
+  cursor: pointer;
+}
+
+.burger div {
+  width: 25px;
+  height: 3px;
+  background-color: #FFFFFF;
+  margin: 5px;
+  transition: all 0.3s ease 0s;
+}
+
+/* Hero Section */
+.hero {
+  height: 100vh;
+  background-image: url('https://images.unsplash.com/photo-1519681393784-d120267933ba');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+.hero-inner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: #FFFFFF;
+}
+
+.hero-inner h1 {
+  font-size: 48px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+}
+
+.hero-inner p {
+  font-size: 24px;
+  font-weight: 400;
+  margin-bottom: 30px;
+}
+
+.cta-btn {
+  display: inline-block;
+  padding: 12px 36px;
+  background-color: #F5A623;
+  color: #FFFFFF;
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-decoration: none;
+  transition: all 0.3s ease 0s;
+}
+
+.cta-btn:hover {
+  background-color: #FFFFFF;
+  color: #F5A623;
+  border: 1px solid #F5A623;
+}
+
+/* About Section */
+.about {
+  padding: 100px;
+  background-color: #FFFFFF;
+}
+
+.about h2 {
+  font-size: 36px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  margin-bottom: 40px;
+}
+
+.about p {
+  font-size: 18px;
+  font-weight: 400;
+  margin-bottom: 30px;
+  line-height: 1.5;
+}
+
+/* Training Plan Section */
+.training-plan {
+  background-color: #f1f1f1;
+  padding: 50px 0;
+}
+
+.training-plan-inner {
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.training-plan h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 40px;
+}
+
+.training-plan p {
+  font-size: 1.5rem;
+  margin-bottom: 40px;
+}
+
+.download-btn {
+  display: inline-block;
+  background-color: #1a1a1a;
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: 700;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.download-btn:hover {
+  background-color: #fff;
+  color: #1a1a1a;
+  border: 2px solid #1a1a1a;
 }
